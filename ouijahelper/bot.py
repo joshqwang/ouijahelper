@@ -15,7 +15,6 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-    await message.channel.send(testing)
     if message.content.lower() == 'hello':
         await message.channel.send('Yeet!')
 
