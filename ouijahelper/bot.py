@@ -12,23 +12,27 @@ async def on_ready():
     print(f'{client.user.name} has connected to Discord!')
 
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-    if message.content.lower() == 'hello':
-        await message.channel.send('World!')
         
-#Prints out information about the bot and how to use its functions
+#Gets called automatically whenever a message is sent and is used to call other functions
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return
+    
+    if message.content.lower() == '.ouiji':
+        ouiji_start()
     if message.content.lower() == '.help':
         await message.channel.send('Info about commands and stuff')
+    elif message.content.lower() == 'hello':
+        await message.channel.send('World!')
+  
+#Starts the ouiji board with a question
+def ouiji_start():
+    randomPrompt = prompt()
+    await message.channel.send(randomPrompt)
 
-
-
+def prompt():
+    return 'yeetus beetus'
 
         
 
