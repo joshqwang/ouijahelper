@@ -2,6 +2,7 @@
 import os
 
 import discord
+import random
 
 TOKEN = os.getenv('DISCORD_TOKEN')
 
