@@ -35,11 +35,13 @@ async def on_message(message):
         await message.channel.send('World!')
   
 #Starts the ouiji board with a question
-async def ouiji_start(startingChannel):
-    randomPrompt = await prompt()
+async def ouiji_start(sentChannel):
+    randomPrompt = prompt()
+    await randomPrompt
     await startingChannel.channel.send(randomPrompt)
     ouijiProgress = True
 
+    #Gives a random prompt from a list
 def prompt():
     newPrompt = promptList[random.randrange(len(promptList))]
     return newPrompt
