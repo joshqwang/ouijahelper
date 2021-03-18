@@ -25,7 +25,7 @@ async def on_message(message):
         return
     
     if message.content.lower() == '.ouiji':
-        ouiji_start()
+        ouiji_start(message)
     elif message.content.lower() == '.end':
         ouiji_end()
         
@@ -35,9 +35,9 @@ async def on_message(message):
         await message.channel.send('World!')
   
 #Starts the ouiji board with a question
-def ouiji_start():
+def ouiji_start(startingChannel):
     randomPrompt = prompt()
-    message.channel.send(randomPrompt)
+    startingChannel.channel.send(randomPrompt)
     ouijiProgress = True
 
 def prompt():
