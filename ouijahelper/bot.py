@@ -25,7 +25,7 @@ async def on_message(message):
     
     if message.content.lower() == '.ouiji':
         ouiji_start()
-    elif messsage.content.lower() == '.end':
+    elif message.content.lower() == '.end':
         ouiji_end()
         
     if message.content.lower() == '.help':
