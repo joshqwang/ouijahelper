@@ -40,7 +40,7 @@ def ouiji_start():
     ouijiProgress = True
 
 def prompt():
-    newPrompt = promptList[randrange(len(promptList))]
+    newPrompt = promptList[random.randrange(len(promptList))]
     return newPrompt
 
 def ouiji_end():
