@@ -8,7 +8,7 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 client = discord.Client()
 
 #Variables and lists
-ouijiProgress = false
+ouijiProgress = False
 promptList = ["Test1","Test2", "Test3"]
 
 @client.event
@@ -37,14 +37,14 @@ async def on_message(message):
 def ouiji_start():
     randomPrompt = prompt()
     message.channel.send(randomPrompt)
-    ouijiProgress = true
+    ouijiProgress = True
 
 def prompt():
     newPrompt = promptList[randrange(len(promptList))]
     return newPrompt
 
 def ouiji_end():
-    ouijiProgress = false
+    ouijiProgress = False
 
 
     
