@@ -18,7 +18,7 @@ async def on_ready():
 
 
         
-#Gets called automatically whenever a message is sent and is used to call other functions
+#Gets called automatically whenever a message is sent and is used to call other functions as well as fitting conditional statements
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -27,13 +27,14 @@ async def on_message(message):
     if message.content.lower() == '.ouiji':
         await ouiji_start(message)
     elif message.content.lower() == '.end':
-        await ouiji_end()
-        
-    if message.content.lower() == '.help':
+        await ouiji_end()      
+    elif message.content.lower() == '.help':
         await message.channel.send('Info about commands and stuff')
-    elif message.content.lower() == 'hello':
-        await message.channel.send('World!')
-  
+    
+    if await len(message) == 1 && ouijiProgess == True
+        await addOuiji(message)
+    
+    
 #Starts the ouiji board with a question
 async def ouiji_start(startingChannel):
     randomPrompt = await prompt()
@@ -44,6 +45,9 @@ async def ouiji_start(startingChannel):
 def prompt():
     newPrompt = promptList[random.randrange(len(promptList))]
     return newPrompt
+
+def addOuiji(letter):
+    
 
 async def ouiji_end():
     ouijiProgress = False
