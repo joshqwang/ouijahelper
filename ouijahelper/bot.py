@@ -12,6 +12,7 @@ client = discord.Client()
 ouijiProgress = False
 promptList = ["Test1","Test2", "Test3"]
 letterList = []
+randomPrompt = "Test17"
 
 @client.event
 async def on_ready():
@@ -32,13 +33,14 @@ async def on_message(message):
     elif message.content.lower() == '.help':
         await message.channel.send('Info about commands and stuff')
     
-    if len(message) == 1 and ouijiProgress == True:
+    if len(message.content) == 1 and ouijiProgress == True:
         addOuiji(message)
     
     
 #Starts the ouiji board with a question determined by the function 'prompt'
 async def ouiji_start(startingChannel):
     global ouijiProgress
+    global randomPrompt
     randomPrompt = prompt()
     await startingChannel.channel.send(randomPrompt)
     ouijiProgress = True
@@ -58,6 +60,7 @@ def addOuiji(letter):
 async def ouiji_end(startingChannel):
     global ouijiProgress
     ouijiProgress = False
+    global randomPrompt
     global letterList
     for element in letterList:
         convertedLetterList += element
