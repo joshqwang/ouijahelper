@@ -32,12 +32,12 @@ async def on_message(message):
         await message.channel.send('Info about commands and stuff')
     
     if await len(message) == 1 and ouijiProgress == True:
-        await addOuiji(message)
+        addOuiji(message)
     
     
 #Starts the ouiji board with a question
 async def ouiji_start(startingChannel):
-    randomPrompt = await prompt()
+    randomPrompt = prompt()
     await startingChannel.channel.send(randomPrompt)
     ouijiProgress = True
 
