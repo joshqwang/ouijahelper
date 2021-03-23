@@ -31,7 +31,7 @@ async def on_message(message):
     elif message.content.lower() == '.help':
         await message.channel.send('Info about commands and stuff')
     
-    if await len(message) == 1 && ouijiProgress == True
+    if await len(message) == 1 && ouijiProgress == True:
         await addOuiji(message)
     
     
