@@ -28,7 +28,7 @@ async def on_message(message):
     if message.content.lower() == '.ouiji':
         await ouiji_start(message)
     elif message.content.lower() == '.end':
-        await ouiji_end()      
+        await ouiji_end(message)      
     elif message.content.lower() == '.help':
         await message.channel.send('Info about commands and stuff')
     
@@ -36,26 +36,33 @@ async def on_message(message):
         addOuiji(message)
     
     
-#Starts the ouiji board with a question
+#Starts the ouiji board with a question determined by the function 'prompt'
 async def ouiji_start(startingChannel):
     global ouijiProgress
     randomPrompt = prompt()
     await startingChannel.channel.send(randomPrompt)
     ouijiProgress = True
 
-    #Gives a random prompt from a list
+#Gives a random prompt from a list
 def prompt():
     global promptList
     newPrompt = promptList[random.randrange(len(promptList))]
     return newPrompt
 
+#Adds a letter or symbol to the Ouiji board determined by user input
 def addOuiji(letter):
     global letterList
     letterList.append(letter)
-
-async def ouiji_end():
+    
+#Ends the ouiji as well as sending what the overall message was 
+async def ouiji_end(startingChannel):
     global ouijiProgress
     ouijiProgress = False
+    global letterList
+    for element in letterList
+        convertedLetterList += element
+    
+    await startingChannel.channel.send(randomPrompt + 'The spirits say: ' +  convertedLetterList)
 
 
     
