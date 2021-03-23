@@ -11,6 +11,7 @@ client = discord.Client()
 #Variables and lists
 ouijiProgress = False
 promptList = ["Test1","Test2", "Test3"]
+letterList = []
 
 @client.event
 async def on_ready():
@@ -37,19 +38,23 @@ async def on_message(message):
     
 #Starts the ouiji board with a question
 async def ouiji_start(startingChannel):
+    global ouijiProgress
     randomPrompt = prompt()
     await startingChannel.channel.send(randomPrompt)
     ouijiProgress = True
 
     #Gives a random prompt from a list
 def prompt():
+    global promptList
     newPrompt = promptList[random.randrange(len(promptList))]
     return newPrompt
 
 def addOuiji(letter):
-    
+    global letterList
+    letterList.append(letter)
 
 async def ouiji_end():
+    global ouijiProgress
     ouijiProgress = False
 
 
