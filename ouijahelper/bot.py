@@ -62,6 +62,7 @@ async def ouiji_end(startingChannel):
     ouijiProgress = False
     global randomPrompt
     global letterList
+    convertedLetterList = ""
     for element in letterList:
         convertedLetterList += element
     
