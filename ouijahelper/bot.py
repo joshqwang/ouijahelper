@@ -14,6 +14,7 @@ promptList = ["Test1","Test2", "Test3"]
 letterList = []
 randomPrompt = "Test17"
 
+
 @client.event
 async def on_ready():
     print(f'{client.user.name} has connected to Discord!')
@@ -34,7 +35,7 @@ async def on_message(message):
         await message.channel.send('Info about commands and stuff')
     
     if len(message.content) == 1 and ouijiProgress == True:
-        await message.add_reaction(":ghost:")
+        await message.add_reaction('\N{THUMBS UP SIGN}')
         addOuiji(message)
     
     
