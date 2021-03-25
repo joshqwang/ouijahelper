@@ -10,7 +10,7 @@ client = discord.Client()
 
 #Variables and lists
 ouijiProgress = False
-promptList = ["Test1","Test2", "Test3"]
+promptList = ["What is the objectively best movie?","What is the meaning of life?", "Who in this server is the most likely to trip on their own foot?"]
 letterList = []
 randomPrompt = "Test17"
 
@@ -29,10 +29,10 @@ async def on_message(message):
     
     if message.content.lower() == '.ouiji':
         await ouiji_start(message)
-    elif message.content.lower() == '.end':
+    elif message.content.lower() == '.ouijiEnd' and ouijiProgress == True:
         await ouiji_end(message)      
-    elif message.content.lower() == '.help':
-        await message.channel.send('Info about commands and stuff')
+    elif message.content.lower() == '.ouijiHelp':
+        await message.channel.send('Commands: .ouiji: Starts the ouiji board   .ouijiEnd: Ends the ouiji board. Rules: Only accepts one letter at a time, use - as spaces if needed. Users string these letters to make words to find a funny or unexpected answer to the prompt given')
     
     if len(message.content) == 1 and ouijiProgress == True:
         await message.add_reaction('\N{THUMBS UP SIGN}')
