@@ -64,7 +64,7 @@ async def ouiji_end(startingChannel):
     global letterList
     convertedLetterList = ""
     for element in letterList:
-        convertedLetterList += element
+        convertedLetterList += element.content
     
     await startingChannel.channel.send(randomPrompt + 'The spirits say: ' +  convertedLetterList)
 
