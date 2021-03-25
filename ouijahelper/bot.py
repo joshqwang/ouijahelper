@@ -30,7 +30,7 @@ async def on_message(message):
     if message.content.lower() == '.ouiji':
         letterList = []
         await ouiji_start(message)
-    elif message.content.lower() == '.ouijiEnd' and ouijiProgress == True:
+    elif message.content.lower() == '.ouijiEnd':
         await ouiji_end(message)      
     elif message.content.lower() == '.ouijiHelp':
         await message.channel.send('Commands: .ouiji: Starts the ouiji board   .ouijiEnd: Ends the ouiji board. Rules: Only accepts one letter at a time, use - as spaces if needed. Users string these letters to make words to find a funny or unexpected answer to the prompt given')
