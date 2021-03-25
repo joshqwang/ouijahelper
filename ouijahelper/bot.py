@@ -28,6 +28,7 @@ async def on_message(message):
         return
     
     if message.content.lower() == '.ouiji':
+        letterList = []
         await ouiji_start(message)
     elif message.content.lower() == '.ouijiEnd' and ouijiProgress == True:
         await ouiji_end(message)      
