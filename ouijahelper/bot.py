@@ -34,6 +34,7 @@ async def on_message(message):
         await message.channel.send('Info about commands and stuff')
     
     if len(message.content) == 1 and ouijiProgress == True:
+        await message.add_reaction(":ghost:message.id")
         addOuiji(message)
     
     
