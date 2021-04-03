@@ -79,12 +79,15 @@ async def ouiji_end(startingChannel):
     global ouijiProgress
     ouijiProgress = False
     global randomPrompt
+    global customPrompt
     global letterList
     convertedLetterList = ""
     for element in letterList:
         convertedLetterList += element.content
-    
+    if customOuiji == False:
     await startingChannel.channel.send(randomPrompt + 'The spirits say: ' +  convertedLetterList)
+    else:
+    await startingChannel.channel.send(customPrompt + 'The spirits say: ' +  convertedLetterList)
 
 
     
