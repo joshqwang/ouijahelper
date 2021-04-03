@@ -44,6 +44,7 @@ async def on_message(message):
         addOuiji(message)
     elif customOuiji == True:
         customPrompt = message.content
+        await message.add_reaction('\N{THUMBS UP SIGN}')
         await custom_start(message)
         
     
