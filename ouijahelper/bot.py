@@ -85,9 +85,10 @@ async def ouiji_end(startingChannel):
     for element in letterList:
         convertedLetterList += element.content
     if customOuiji == False:
-    await startingChannel.channel.send(randomPrompt + 'The spirits say: ' +  convertedLetterList)
+        await startingChannel.channel.send(randomPrompt + 'The spirits say: ' +  convertedLetterList)
     else:
-    await startingChannel.channel.send(customPrompt + 'The spirits say: ' +  convertedLetterList)
+        await startingChannel.channel.send(customPrompt + 'The spirits say: ' +  convertedLetterList)
+        customOuiji = False
 
 
     
