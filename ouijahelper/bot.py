@@ -79,6 +79,7 @@ async def ouiji_end(startingChannel):
     global ouijiProgress
     ouijiProgress = False
     global randomPrompt
+    global customOuiji
     global customPrompt
     global letterList
     convertedLetterList = ""
