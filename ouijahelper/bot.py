@@ -25,6 +25,11 @@ async def on_ready():
 #Gets called automatically whenever a message is sent and is used to call other functions as well as fitting conditional statements
 @client.event
 async def on_message(message):
+    global letterList
+    global customOuiji
+    global customPrompt
+    global ouijiProgress
+    
     if message.author == client.user:
         return
     
@@ -34,7 +39,7 @@ async def on_message(message):
     elif message.content.lower() == '.ouijiend':
         await ouiji_end(message)      
     elif message.content.lower() == '.ouijihelp':
-        await message.channel.send('Commands: .ouiji: Starts the ouiji board   .ouijiEnd: Ends the ouiji board. Rules: Only accepts one letter at a time, use - as spaces if needed. Users string these letters to make words to find a funny or unexpected answer to the prompt given')
+        await message.channel.send('Commands: .ouiji: Starts the ouiji board   .ouijiEnd: Ends the ouiji board .customOuiji: Lets the next message sent become the prompt usesRules: Only accepts one letter at a time, use - as spaces if needed. Users string these letters to make words to find a funny or unexpected answer to the prompt given')
     elif message.content.lower() == '.ouijicustom': 
         letterList = []
         customOuiji = True
