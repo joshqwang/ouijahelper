@@ -10,7 +10,7 @@ client = discord.Client()
 
 #Variables and lists
 ouijiProgress = False
-promptList = ["What is the objectively best movie?","What is the meaning of life?", "Who in this server is the most likely to trip on their own foot?"]
+promptList = ["What is the objectively best movie?","What is the meaning of life?", "Who in this server is the most likely to trip on their own foot?", "What was the first thing you did this morning?", "Who in this server is the most likely to be in bed right now?", "What will the weather tomorrow be like?", "What would you wait in line for a really long time for?"]
 letterList = []
 randomPrompt = ""
 customOuiji = False
