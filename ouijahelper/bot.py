@@ -74,7 +74,7 @@ def addOuiji(letter):
     global letterList
     letterList.append(letter)
     
-#Ends the ouiji as well as sending what the overall message was 
+#Ends the ouiji as well as sending what the overall message was and stuff
 async def ouiji_end(startingChannel):
     global ouijiProgress
     ouijiProgress = False
