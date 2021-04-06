@@ -57,10 +57,10 @@ async def ouiji_start(startingChannel):
     ouijiProgress = True
 
 #Gives a custom prompt based upon a user's input
-async def custom_start(startingChannel):
+async def custom_start(customChannel):
     global ouijiProgress
     global customPrompt
-    await startingChannel.channel.send(customPrompt)
+    await customChannel.channel.send(customPrompt)
     ouijiProgress = True
 
 #Gives a random prompt from a list
@@ -86,9 +86,9 @@ async def ouiji_end(startingChannel):
     for element in letterList:
         convertedLetterList += element.content
     if customOuiji == False:
-        await startingChannel.channel.send(randomPrompt + 'The spirits say: ' +  convertedLetterList)
+        await startingChannel.channel.send(randomPrompt + ' The spirits say: ' +  convertedLetterList)
     else:
-        await startingChannel.channel.send(customPrompt + 'The spirits say: ' +  convertedLetterList)
+        await startingChannel.channel.send(customPrompt + ' The spirits say: ' +  convertedLetterList)
         customOuiji = False
 
 
