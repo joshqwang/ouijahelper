@@ -84,7 +84,7 @@ def addOuiji(letter):
     global letterList
     if letter != '-':
         letterList.append(letter)
-    else
+    else:
         letterList.append(" ")
     
 #Ends the ouiji as well as sending what the overall message was and stuff
