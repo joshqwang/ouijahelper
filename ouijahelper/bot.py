@@ -15,6 +15,7 @@ letterList = []
 randomPrompt = ""
 customOuiji = False
 customPrompt = ""
+ouijiChannel = ""
 
 @client.event
 async def on_ready():
@@ -29,25 +30,28 @@ async def on_message(message):
     global customOuiji
     global customPrompt
     global ouijiProgress
+    global ouijiChannel
     
     if message.author == client.user:
         return
     
     if message.content.lower() == '.ouiji':
+        ouijiChannel = message.channel
         letterList = []
         await ouiji_start(message)
-    elif message.content.lower() == '.ouijiend':
+    elif message.content.lower() == '.ouijiend' and message.channel == ouijiChannel:
         await ouiji_end(message)      
     elif message.content.lower() == '.ouijihelp':
         await message.channel.send('Commands: .ouiji: Starts the ouiji board   .ouijiEnd: Ends the ouiji board .customOuiji: Lets the next message sent become the prompt usesRules: Only accepts one letter at a time, use - as spaces if needed. Users string these letters to make words to find a funny or unexpected answer to the prompt given')
     elif message.content.lower() == '.ouijicustom': 
+        ouijiChannel = message.channel
         letterList = []
         customOuiji = True
         await message.channel.send('What prompt would you like to have?')
-    elif len(message.content) == 1 and ouijiProgress == True:
+    elif len(message.content) == 1 and ouijiProgress == True and message.channel == ouijiChannel:
         await message.add_reaction('\N{THUMBS UP SIGN}')
         addOuiji(message)
-    elif customOuiji == True:
+    elif customOuiji == True and message.channel == ouijiChannel:
         customPrompt = message.content
         await message.add_reaction('\N{THUMBS UP SIGN}')
         await custom_start(message)
