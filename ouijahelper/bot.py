@@ -82,7 +82,7 @@ def prompt():
 #Adds a letter or symbol to the Ouiji board determined by user input
 def addOuiji(letter):
     global letterList
-    if letter != '-':
+    if letter.content != '-':
         letterList.append(letter)
     else:
         letterList.append(" ")
