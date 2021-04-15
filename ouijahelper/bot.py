@@ -51,7 +51,7 @@ async def on_message(message):
     elif len(message.content) == 1 and ouijiProgress == True and message.channel == ouijiChannel:
         await message.add_reaction('\N{THUMBS UP SIGN}')
         addOuiji(message)
-    elif customOuiji == True and message.channel == ouijiChannel:
+    elif customOuiji == True and message.channel == ouijiChannel and ouijiProgress == False:
         customPrompt = message.content
         await message.add_reaction('\N{THUMBS UP SIGN}')
         await custom_start(message)
