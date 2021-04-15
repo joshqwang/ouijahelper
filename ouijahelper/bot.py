@@ -39,8 +39,9 @@ async def on_message(message):
         ouijiChannel = message.channel
         letterList = []
         await ouiji_start(message)
-    elif message.content.lower() == '.ouijiend' and message.channel == ouijiChannel:
-        await ouiji_end(message)      
+    elif message.content.lower() == '.ouijiend' or message.content.lower() == 'goodbye':
+        if message.channel == ouijiChannel:
+            await ouiji_end(message)      
     elif message.content.lower() == '.ouijihelp':
         await message.channel.send('Commands: .ouiji: Starts the ouiji board   .ouijiEnd: Ends the ouiji board .customOuiji: Lets the next message sent become the prompt usesRules: Only accepts one letter at a time, use - as spaces if needed. Users string these letters to make words to find a funny or unexpected answer to the prompt given')
     elif message.content.lower() == '.ouijicustom': 
@@ -81,7 +82,10 @@ def prompt():
 #Adds a letter or symbol to the Ouiji board determined by user input
 def addOuiji(letter):
     global letterList
-    letterList.append(letter)
+    if letter != '-':
+        letterList.append(letter)
+    else
+        letterList.append(" ")
     
 #Ends the ouiji as well as sending what the overall message was and stuff
 async def ouiji_end(startingChannel):
