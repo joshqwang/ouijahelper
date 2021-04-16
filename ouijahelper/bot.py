@@ -35,7 +35,7 @@ async def on_message(message):
     if message.author == client.user:
         return
     
-    if message.content.lower() == '.ouiji':
+    if message.content.lower() == '.ouiji' and ouijiProgress == False and customOuiji == False:
         ouijiChannel = message.channel
         letterList = []
         await ouiji_start(message)
@@ -44,7 +44,7 @@ async def on_message(message):
             await ouiji_end(message)      
     elif message.content.lower() == '.ouijihelp':
         await message.channel.send('Commands: .ouiji: Starts the ouiji board   .ouijiEnd: Ends the ouiji board .customOuiji: Lets the next message sent become the prompt usesRules: Only accepts one letter at a time, use - as spaces if needed. Users string these letters to make words to find a funny or unexpected answer to the prompt given')
-    elif message.content.lower() == '.ouijicustom': 
+    elif message.content.lower() == '.ouijicustom' and ouijiProgress == False: 
         ouijiChannel = message.channel
         letterList = []
         customOuiji = True
@@ -93,6 +93,7 @@ async def ouiji_end(startingChannel):
     ouijiProgress = False
     global randomPrompt
     global customOuiji
+    
     global customPrompt
     global letterList
     convertedLetterList = ""
@@ -102,7 +103,7 @@ async def ouiji_end(startingChannel):
         await startingChannel.channel.send(randomPrompt + ' The spirits say: ' +  convertedLetterList)
     else:
         await startingChannel.channel.send(customPrompt + ' The spirits say: ' +  convertedLetterList)
-        customOuiji = False
+    customOuiji = False
 
 
     
