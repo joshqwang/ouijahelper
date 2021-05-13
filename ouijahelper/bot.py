@@ -22,8 +22,9 @@ async def on_ready():
     print(f'{client.user.name} has connected to Discord!')
 
 
-        
-#Gets called automatically whenever a message is sent and is used to call other functions as well as fitting conditional statements
+#The function "on_message" automatically gets called whenever a message gets sent by a user. The class "message" in discord is the input type of the variable message.
+#The output of this function is dependent on the message but most results call a function
+
 @client.event
 async def on_message(message):
     global letterList
@@ -59,6 +60,8 @@ async def on_message(message):
         
     
 #Starts the ouiji board with a question determined by the function 'prompt'
+#The input of the function is the startingChannel which is determined by what channel the message was sent in
+#The output of this function is that it starts the ouiji, giving a prompt and making ouijiProgress true.
 async def ouiji_start(startingChannel):
     global ouijiProgress
     global randomPrompt
@@ -67,6 +70,7 @@ async def ouiji_start(startingChannel):
     ouijiProgress = True
 
 #Gives a custom prompt based upon a user's input
+#The output of this function is that it sends the user's message in the channel to signify the program is working 
 async def custom_start(customChannel):
     global ouijiProgress
     global customPrompt
@@ -74,21 +78,21 @@ async def custom_start(customChannel):
     ouijiProgress = True
 
 #Gives a random prompt from a list
+#The output of this function is that random prompt provided 
 def prompt():
     global promptList
     newPrompt = promptList[random.randrange(len(promptList))]
     return newPrompt
 
 #Adds a letter or symbol to the Ouiji board determined by user input
+#The output of this function is adding on to the list of letters allowing for a correct ouiji
 def addOuiji(letter):
     global letterList
- ##   if letter.content == '-':
- ##      letterList.append(" ")
- ## else:
-
     letterList.append(letter)
     
-#Ends the ouiji as well as sending what the overall message was and stuff
+#Ends the ouiji and sends a message giving information about it
+#The input of this function is the channel the message was sent in (startingChannel)
+#The outputs of this function are that it ends the ouiji (ouijiProgress = false) and sends a message about the ouiji
 async def ouiji_end(startingChannel):
     global ouijiProgress
     ouijiProgress = False
